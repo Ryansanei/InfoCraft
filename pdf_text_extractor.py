@@ -22,9 +22,11 @@ def extract_clean_text(pdf_path):
             for page in pdf_reader.pages:
                 page_text = page.extract_text()
                 if page_text:
-                    extracted_text.append(page_text.strip())
+                    # Clean and concatenate text without '\n' or extra whitespace
+                    cleaned_page_text = ' '.join(line.strip() for line in page_text.splitlines() if line.strip())
+                    extracted_text.append(cleaned_page_text)
 
-        cleaned_text = " ".join(extracted_text)
+        cleaned_text = ' '.join(extracted_text)
 
     except (FileNotFoundError, PyPDF2.errors.PdfReadError) as e:
         raise RuntimeError(f"Error extracting text from PDF '{pdf_path}': {e}")
