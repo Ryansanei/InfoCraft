@@ -87,8 +87,8 @@ def main(image_path, output_pdf_path):
 
 if __name__ == "__main__":
     # Specify input and output paths
-    image_path = r"C:\Users\ryans\Downloads\4958571715424792012.jpg"  # Replace with the path to your input image
-    output_pdf_path = r"paddleocr_output.pdf"  # Replace with the desired output PDF path
+    image_path = r"path/to/your/image.jpg"  # Replace with the path to your input image
+    output_pdf_path = r"output/paddleocr_output.pdf"  # Replace with the desired output PDF path
 
     # Run the main function
     main(image_path, output_pdf_path)
