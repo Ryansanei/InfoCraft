@@ -33,6 +33,7 @@ def extract_clean_text(pdf_path):
 
     return cleaned_text
 
+
 # This module can now be imported and used in other Python files like:
 # from pdf_text_extractor import extract_clean_text
 # text = extract_clean_text('path/to/file.pdf')
