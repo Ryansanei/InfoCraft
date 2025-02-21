@@ -1,4 +1,3 @@
-# !/usr/bin/env python
 """
 process_bridge.py
 
