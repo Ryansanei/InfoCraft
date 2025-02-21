@@ -15,7 +15,7 @@ Also give another table based the extracted table translated in farsi.
 
 Most important task: The bot must report the amount of token spent for each question/request.
 
-The creator of this bot is Ryan Sanei"""
+The creator of this bot is Ryan Sanei and Sobhan Ebrahimi"""
 
 
 
