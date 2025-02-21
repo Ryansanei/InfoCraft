@@ -1,6 +1,8 @@
+# main.py
 from openai_client import client, assistant
 from assistant_handler import EventHandler
 import config
+from process_bridge import process_pdf, clean_and_sort_text
 
 def chat_with_gpt(user_text):
     """Send user input to GPT and stream response."""
@@ -23,5 +25,18 @@ def chat_with_gpt(user_text):
         stream.until_done()
 
 if __name__ == "__main__":
-    user_input = input("Enter your text: ")  # Get user input
-    chat_with_gpt(user_input)  # Send to GPT
+    # Get the PDF file path from the user
+    pdf_path = input("Enter the full path to your PDF file: ").strip()
+    if not pdf_path:
+        print("No PDF path provided. Exiting.")
+        exit(1)
+
+    # Process the PDF and get the extracted text
+    extracted_text = process_pdf(pdf_path)
+    cleaned_text = clean_and_sort_text(extracted_text)
+
+    print("\n--- Extracted, Cleaned & Sorted Text ---\n")
+    print(cleaned_text)
+
+    # Use the entire cleaned text as the input to chat_with_gpt
+    chat_with_gpt(cleaned_text)
